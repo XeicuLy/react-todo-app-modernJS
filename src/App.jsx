@@ -19,6 +19,13 @@ function App() {
     newTodos.splice(index, 1);
     setInCompleteTodos(newTodos);
   };
+  const onClickComplete = index => {
+    const newIncompleteTodos = [...inCompleteTodos];
+    newIncompleteTodos.splice(index, 1);
+    const newCompleteTodos = [...completeTodos, inCompleteTodos[index]];
+    setInCompleteTodos(newIncompleteTodos);
+    setCompleteTodos(newCompleteTodos);
+  };
 
   return (
     <>
@@ -41,7 +48,14 @@ function App() {
             return (
               <li key={todo} className='list incomplete-list'>
                 <p className='description'>{todo}</p>
-                <button className='button complete-button'>完了</button>
+                <button
+                  className='button complete-button'
+                  onClick={() => {
+                    onClickComplete(index);
+                  }}
+                >
+                  完了
+                </button>
                 <button
                   className='button delete-button'
                   onClick={() => {
