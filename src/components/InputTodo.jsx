@@ -15,7 +15,7 @@ const inputAreaStyle = {
   outline: 'none',
 };
 
-export const InputTodo = ({ inputValue, onChangeInputValue, onClickAdd }) => {
+export const InputTodo = ({ inputValue, onChangeInputValue, onClickAdd, disabled }) => {
   return (
     <div style={inputBoxStyle}>
       <input
@@ -24,6 +24,7 @@ export const InputTodo = ({ inputValue, onChangeInputValue, onClickAdd }) => {
         placeholder='TODOを入力'
         value={inputValue}
         onChange={onChangeInputValue}
+        disabled={disabled}
       />
       <button className='button' onClick={onClickAdd}>
         追加
