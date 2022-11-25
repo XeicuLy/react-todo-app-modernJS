@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
 import { InputTodo } from './components/InputTodo';
+import { InCompleteTodos } from './components/IncompleteTodos';
 
 const App = () => {
   const [inCompleteTodos, setInCompleteTodos] = useState([]);
@@ -43,34 +43,11 @@ const App = () => {
         onChangeInputValue={onChangeInputValue}
         onClickAdd={onClickAdd}
       />
-      <div className='incomplete-area'>
-        <p className='title'>未完了のTODO</p>
-        <ul className='incomplete-lists'>
-          {inCompleteTodos.map((todo, index) => {
-            return (
-              <li key={todo} className='list incomplete-list'>
-                <p className='description'>{todo}</p>
-                <button
-                  className='button complete-button'
-                  onClick={() => {
-                    onClickComplete(index);
-                  }}
-                >
-                  完了
-                </button>
-                <button
-                  className='button delete-button'
-                  onClick={() => {
-                    onClickDelete(index);
-                  }}
-                >
-                  削除
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+      <InCompleteTodos
+        todos={inCompleteTodos}
+        onClickComplete={onClickComplete}
+        onClickDelete={onClickDelete}
+      />
       <div className='complete-area'>
         <p className='title'>完了のTODO</p>
         <ul className='complete-lists'>
