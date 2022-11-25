@@ -2,13 +2,6 @@ body {
   font-family: sans-serif;
 }
 
-.input-area {
-  border-radius: 16px;
-  padding: 6px 16px;
-  background-color: #fff;
-  outline: none;
-}
-
 .button {
   padding: 4px 16px;
   background-color: ghostwhite;
@@ -18,14 +11,6 @@ body {
 .button:hover {
   background-color: aqua;
   color: #fff;
-}
-
-.input-box {
-  background-color: #c1ffff;
-  width: 400px;
-  padding: 8px;
-  margin: 8px;
-  border-radius: 8px;
 }
 
 .incomplete-area {
