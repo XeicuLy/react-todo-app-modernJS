@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function App() {
+const App = () => {
   const [inCompleteTodos, setInCompleteTodos] = useState(['ああああ', 'いいいい']);
   const [completeTodos, setCompleteTodos] = useState(['うううう']);
   const [inputValue, setInputValue] = useState('');
@@ -84,6 +84,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
