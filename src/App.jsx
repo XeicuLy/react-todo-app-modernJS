@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { InputTodo } from './components/InputTodo';
+
 const App = () => {
   const [inCompleteTodos, setInCompleteTodos] = useState([]);
   const [completeTodos, setCompleteTodos] = useState([]);
@@ -36,18 +38,11 @@ const App = () => {
 
   return (
     <>
-      <div className='input-box'>
-        <input
-          className='input-area'
-          type='text'
-          placeholder='TODOを入力'
-          value={inputValue}
-          onChange={onChangeInputValue}
-        />
-        <button className='button' onClick={onClickAdd}>
-          追加
-        </button>
-      </div>
+      <InputTodo
+        inputValue={inputValue}
+        onChangeInputValue={onChangeInputValue}
+        onClickAdd={onClickAdd}
+      />
       <div className='incomplete-area'>
         <p className='title'>未完了のTODO</p>
         <ul className='incomplete-lists'>
