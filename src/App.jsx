@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [inCompleteTodos, setInCompleteTodos] = useState(['ああああ', 'いいいい']);
-  const [completeTodos, setCompleteTodos] = useState(['うううう']);
+  const [inCompleteTodos, setInCompleteTodos] = useState([]);
+  const [completeTodos, setCompleteTodos] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
   const onChangeInputValue = e => {
@@ -25,6 +25,13 @@ const App = () => {
     const newCompleteTodos = [...completeTodos, inCompleteTodos[index]];
     setInCompleteTodos(newIncompleteTodos);
     setCompleteTodos(newCompleteTodos);
+  };
+  const onClickReturn = index => {
+    const newCompleteTodos = [...completeTodos];
+    newCompleteTodos.splice(index, 1);
+    const newIncompleteTodos = [...inCompleteTodos, completeTodos[index]];
+    setCompleteTodos(newCompleteTodos);
+    setInCompleteTodos(newIncompleteTodos);
   };
 
   return (
@@ -72,11 +79,18 @@ const App = () => {
       <div className='complete-area'>
         <p className='title'>完了のTODO</p>
         <ul className='complete-lists'>
-          {completeTodos.map(todo => {
+          {completeTodos.map((todo, index) => {
             return (
               <li key={todo} className='list complete-list'>
                 <p className='description'>{todo}</p>
-                <button className='button return-button'>戻す</button>
+                <button
+                  className='button return-button'
+                  onClick={() => {
+                    onClickReturn(index);
+                  }}
+                >
+                  戻す
+                </button>
               </li>
             );
           })}
